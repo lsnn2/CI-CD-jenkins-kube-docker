@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: vproapp
-        image: imranvisualpath/freshtomapp:V7
+        image: lsnn2/vprofileapp:V1
         ports:
         - name: vproapp-port
           containerPort: 8080
