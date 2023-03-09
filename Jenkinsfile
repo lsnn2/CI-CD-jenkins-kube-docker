@@ -3,7 +3,7 @@ pipeline {
     environment {
         registry = "lsnn2/vprofileapp"
         registryCredential = 'dockerhub'
-        ARTVERSION = "$(env.BUILD_ID)"
+        ARTVERSION = "${env.BUILD_ID}"
     }
     stages{
         stage("Fetch Code") {
