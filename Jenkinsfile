@@ -58,7 +58,6 @@ pipeline {
         }
         stage("Build Docker Image"){
             steps{
-                echo "====++++executing Build Docker Image++++===="
                 script {
                     dockerImage = docker.build registry + ":V$BUILD_NUMBER"
                 }
@@ -67,9 +66,10 @@ pipeline {
         stage("UPLOAD IMAGE") {
             steps{
                 script{
-                    docker.withRegistry('',registryCredential)
+                    docker.withRegistry('', registryCredential) {
                         dockerImage.push("V$BUILD_NUMBER")
                         dockerImage.push("latest")
+                    }
                 }
             }
         }
